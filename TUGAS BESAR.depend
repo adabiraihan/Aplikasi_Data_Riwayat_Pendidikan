@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1556190431 source:e:\belajar ngoding\latihan c++\tugas besar\main.cpp
+	<iostream>
+	"datapeddobel.h"
+	"datapedcirc.h"
+	"dataped.h"
+
+1556184389 source:e:\belajar ngoding\latihan c++\tugas besar\child.cpp
+	"datapeddobel.h"
+	<iostream>
+
+1556184335 e:\belajar ngoding\latihan c++\tugas besar\datapeddobel.h
+	<iostream>
+	<cstdlib>
+
+1556190516 source:e:\belajar ngoding\latihan c++\tugas besar\parent.cpp
+	"datapedcirc.h"
+	<iostream>
+
+1556184869 e:\belajar ngoding\latihan c++\tugas besar\datapedcirc.h
+	<iostream>
+
+1556190431 source:e:\belajar ngoding\latihan c++\tugas besar\relasi.cpp
+	"dataped.h"
+	<iostream>
+
+1556189800 e:\belajar ngoding\latihan c++\tugas besar\dataped.h
+	"datapedcirc.h"
+	"datapeddobel.h"
+	<iostream>
+
