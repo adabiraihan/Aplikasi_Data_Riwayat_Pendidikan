@@ -8,7 +8,7 @@ void createlist(Listc &L) {
     last(L) = firstchi(L);
 }
 
-address_child alokasi(string jenjang) {
+address_child alokasi(string jenjang){
     address_child p = new elmlistc;
     jenjang(p) = jenjang;
     next(p) = NULL;
