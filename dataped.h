@@ -37,7 +37,7 @@ void deletefirstR(Listr &L,address_relasi &P);
 void deletelastR(Listr &L,address_relasi &P);
 void deleteafterR(Listr &L,address_relasi &P,address_relasi prec);
 void deleteR(Listr &L,address_relasi &P);
-void findR(Listr &L, string &x);
+void findR(Listr &L, string x);
 int findmany(Listr L,string x);
 
 #endif // DATAPED_H_INCLUDED

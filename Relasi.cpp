@@ -140,7 +140,7 @@ void deleteR(Listr &L,address_relasi &P){
     }
 }
 
-void findR(Listr &L,string &x){
+void findR(Listr &L,string x){
     address_relasi Q = firstrel(L);
     while(Q != NULL){
         if(Nama(parent(Q)) == x){

@@ -93,3 +93,41 @@ address_child caripendidikan(Listc L,string x){
         return NULL;
     }
 }
+
+void deletelastC(Listc &L,address_child &P){
+    P = last(L);
+    last(L) = prev(P);
+    prev(P) = NULL;
+}
+
+void deleteafterC(Listc &L,address_child &P,address_child prec){
+    P = next(prec);
+    next(prec) = next(P);
+    next(P) = NULL;
+}
+
+void deleteC(Listc &L,address_child &P){
+    address_child prec;
+    if(firstchi(L) == NULL){
+        cout<<"TIDAK ADA LIST";
+    }
+    else if(next(P) == NULL){
+            deletelastC(L,P);
+        }
+    else{
+        while(next(prec) != P){
+            prec = next(prec);
+        }
+        deleteafterC(L,P,prec);
+    }
+}
+
+void findC(Listc &L,string x){
+    address_child Q = firstchi(L);
+    while(Q != NULL){
+        if(jenjang(Q) == x){
+            deleteC(L,Q);
+        }
+    Q = next(Q);
+    }
+}

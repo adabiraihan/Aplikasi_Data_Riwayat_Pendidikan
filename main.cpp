@@ -15,7 +15,7 @@ int main()
     address_child cj,c,prec;
     address_relasi r,cr,findr;
 
-    int menu,jml_riwayat;
+    int menu = 1;
     string datapen;
     string x;
     string car;
@@ -32,7 +32,7 @@ int main()
     cout<<"2. Tambah Data Pendidikan"<<endl;
     cout<<"3. Penggabungan Relasi"<<endl;
     cout<<"4. Hapus Data Seseorang"<<endl;
-    cout<<"5. Hapus Data Pendidikan"<<endl;
+    cout<<"5. Hapus Data Pendidikan Dari Seseorang"<<endl;
     cout<<"6. Menampilkan Data"<<endl;
     cout<<"7. Tampilkan Data Pendidikan Orang Tertentu"<<endl;
     cout<<"8. Tampilkan Data Orang Sesuai Pendidikan"<<endl;
@@ -83,10 +83,20 @@ int main()
         break;
     }
 
-    case 5 : {
-        cout<<"Nama yang ingin dihapus : ";
+    case 4 : {
+        cout<<"Data Orang yang ingin dihapus : ";
         cin>>x;
         findR(Lr,x);
+        findP(Lp,x);
+        cout<<endl;
+        break;
+    }
+
+    case 5 : {
+        cout<<"Data Pendidikan orang yang ingin dihapus : ";
+        cin>>x;
+        findR(Lr,x);
+        findC(Lc,x);
         cout<<endl;
         break;
     }
@@ -121,12 +131,11 @@ int main()
                     minpend = findmany(Lr,Nama(p));
                 p = next(p);
             }while(p != firstpar(Lp));
-        }
         cout<<"ORANG DENGAN PENDIDIKAN TERBANYAK : ";
         p = firstpar(Lp);
         do{
             if(findmany(Lr,Nama(p)) == maxpend){
-                cout<<Nama(p)<<", ";
+                cout<<Nama(p)<<", "<<endl;
             }
             p = next(p);
         }while(p != firstpar(Lp));
@@ -141,6 +150,8 @@ int main()
         break;
     }
     }
+    }
 }
 return 0;
 }
+
