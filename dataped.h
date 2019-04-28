@@ -33,11 +33,14 @@ void insertlast(Listr &L,address_relasi P);
 void carirelasinama(Listr L,string x);
 void carirelasipendidikan(Listr L, string x);
 void printall(Listr L,Listp Lp);
-void deletefirstR(Listr &L,address_relasi &P);
+/*void deletefirstR(Listr &L,address_relasi &P);
 void deletelastR(Listr &L,address_relasi &P);
 void deleteafterR(Listr &L,address_relasi &P,address_relasi prec);
 void deleteR(Listr &L,address_relasi &P);
-void findR(Listr &L, string x);
+void findR(Listr &L, string x);*/
 int findmany(Listr L,string x);
+void deleterelasi(Listr &L,address_relasi R);
+void deleterelC(Listr &L, string x);
+void deleterelP(Listr &L, string x);
 
 #endif // DATAPED_H_INCLUDED

@@ -86,8 +86,8 @@ int main()
     case 4 : {
         cout<<"Data Orang yang ingin dihapus : ";
         cin>>x;
-        findR(Lr,x);
-        findP(Lp,x);
+        deleterelP(Lr,x);
+        deleteP(Lp,p,x);
         cout<<endl;
         break;
     }
@@ -95,8 +95,8 @@ int main()
     case 5 : {
         cout<<"Data Pendidikan orang yang ingin dihapus : ";
         cin>>x;
-        findR(Lr,x);
-        findC(Lc,x);
+        deleterelC(Lr,x);
+        deleteC(Lc,c,x);
         cout<<endl;
         break;
     }

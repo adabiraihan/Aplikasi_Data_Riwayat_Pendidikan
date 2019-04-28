@@ -36,8 +36,7 @@ void printinfo(Listc L);
 address_child caripendidikan(Listc L,string x);
 void deletefirstC(Listc &L,address_child &P);
 void deletelastC(Listc &L,address_child &P);
-void deletelastC(Listc &L,address_child &P);
-void deleteR(Listc &L,address_child &P);
+void deleteC(Listc &L, address_child &P, string x);
 void findC(Listc &L,string x);
 
 #endif // DATAPEDDOBEL_H_INCLUDED

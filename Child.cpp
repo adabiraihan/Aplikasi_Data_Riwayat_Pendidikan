@@ -94,6 +94,20 @@ address_child caripendidikan(Listc L,string x){
     }
 }
 
+void deletefirstC(Listc &L,address_child &P){
+    if(firstchi(L) != NULL && last(L) != NULL){
+        P = firstchi(L);
+        if(firstchi(L) == last(L)){
+            firstchi(L) = NULL;
+            last(L) = NULL;
+        }else{
+            firstchi(L) = next(P);
+            prev(next(P)) = NULL;
+            next(P) = NULL;
+        }
+    }
+}
+
 void deletelastC(Listc &L,address_child &P){
     P = last(L);
     last(L) = prev(P);
@@ -103,10 +117,12 @@ void deletelastC(Listc &L,address_child &P){
 void deleteafterC(Listc &L,address_child &P,address_child prec){
     P = next(prec);
     next(prec) = next(P);
+    prev(next(prec)) = prec;
     next(P) = NULL;
+    prev(P) = NULL;
 }
 
-void deleteC(Listc &L,address_child &P){
+/*void deleteC(Listc &L,address_child &P){
     address_child prec;
     if(firstchi(L) == NULL){
         cout<<"TIDAK ADA LIST";
@@ -121,13 +137,41 @@ void deleteC(Listc &L,address_child &P){
         deleteafterC(L,P,prec);
     }
 }
+*/
 
-void findC(Listc &L,string x){
+void deleteC(Listc &L, address_child &P, string x){
+    P = caripendidikan(L,x);
+    if(firstchi(L)==NULL){
+        cout<< x <<" Tidak Ditemukan"<<endl;
+    }
+    else if(firstchi(L) == last(L)){
+        P = firstchi(L);
+        firstchi(L) = NULL;
+        last(L) = NULL;
+    }
+    else{
+        if(P == NULL){
+            cout<< x <<" Tidak Ditemukan"<<endl;
+        }else{
+            if(P == firstchi(L)){
+                deletefirstC(L,P);
+            }else if(P == last(L)){
+                deletelastC(L,P);
+            }else{
+                address_child prec = prev(P);
+                deleteafterC(L,prec,P);
+            }
+        }
+    }
+}
+
+/*void findC(Listc &L,string x){
     address_child Q = firstchi(L);
     while(Q != NULL){
         if(jenjang(Q) == x){
-            deleteC(L,Q);
+            deleteC(L,Q,x);
         }
     Q = next(Q);
     }
 }
+*/

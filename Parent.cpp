@@ -100,7 +100,7 @@ void deleteafterP(Listp &L,address_parent &P,address_parent prec){
     next(P) = NULL;
 }
 
-void deleteP(Listp &L,address_parent &P){
+/*void deleteP(Listp &L,address_parent &P){
     address_parent prec;
     if(firstpar(L) == NULL){
         cout<<"TIDAK ADA LIST";
@@ -120,13 +120,56 @@ void deleteP(Listp &L,address_parent &P){
         deleteafterP(L,P,prec);
     }
 }
+*/
+
+void deleteP(Listp &L, address_parent &P, string x){
+    P = carinama(L,x);
+    if(firstpar(L) == NULL){
+        return;
+    }
+    else if(firstpar(L) == last(L)){
+        P = firstpar(L);
+        firstpar(L) = NULL;
+        last(L) = NULL;
+    }
+    else{
+        if(P == NULL){
+            return;
+        }
+        else{
+            if(P == firstpar(L)){
+                firstpar(L) = next(P);
+                next(last(L)) = firstpar(L);
+                next(P) = NULL;
+            }
+            else if(P == last(L)){
+                address_parent Q = firstpar(L);
+                while(next(Q) != last(L)){
+                    Q = next(Q);
+                }
+                last(L) = Q;
+                next(Q) = firstpar(L);
+                next(P) = NULL;
+            }else{
+                address_parent prec = firstpar(L);
+                while(next(prec) != P){
+                    prec = next(prec);
+                }
+                next(prec) = next(P);
+                next(P) = NULL;
+            }
+        }
+    }
+}
 
 void findP(Listp &L,string x){
     address_parent P = firstpar(L);
     while(P != NULL){
         if(Nama(P) == x){
-            deleteP(L,P);
+            deleteP(L,P,x);
         }
     P = next(P);
     }
 }
+
+

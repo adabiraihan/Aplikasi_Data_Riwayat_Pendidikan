@@ -38,7 +38,7 @@ address_parent carinama(Listp L,string x);
 void deletefirstP(Listp &L,address_parent P);
 void deletelastP(Listp &L,address_parent P);
 void deleteafterP(Listp &L,address_parent &P,address_parent prec);
-void deleteP(Listp &L,address_parent &P);
+void deleteP(Listp &L,address_parent &P,string x);
 void findP(Listp &L,string x);
 
 #endif // DATAPEDCIRC_H_INCLUDED

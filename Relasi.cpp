@@ -90,7 +90,7 @@ void printall(Listr L,Listp Lp){
         cout <<"Tidak Ada Data" << endl;
 }
 
-void deletefirstR(Listr &L,address_relasi &P){
+/*void deletefirstR(Listr &L,address_relasi &P){
     if(firstrel(L) != NULL){
         P = firstrel(L);
         firstrel(L) = next(P);
@@ -148,7 +148,7 @@ void findR(Listr &L,string x){
         }
     Q = next(Q);
     }
-}
+}*/
 
 int findmany(Listr L,string x){
     address_relasi P = firstrel(L);
@@ -160,4 +160,53 @@ int findmany(Listr L,string x){
         P = next(P);
     }
     return temp;
+}
+
+void deleterelasi(Listr &L,address_relasi R){
+    address_relasi P = firstrel(L);
+    if(R == firstrel(L) && R == last(L)){
+        firstrel(L) = NULL;
+        last(L) = NULL;
+    } else if(R == firstrel(L)){
+        firstrel(L) = next(R);
+        next(R) = NULL;
+    } else if(R == last(L)){
+        while(next(P)!=last(L)){
+            P = next(P);
+        }
+        last(L) = P;
+        next(P) = NULL;
+    } else{
+        while(next(P) != R){
+            P = next(P);
+        }
+        next(P) = next(R);
+        next(R) = NULL;
+    }
+}
+
+void deleterelC(Listr &L, string x){
+    address_relasi R = firstrel(L);
+    while(R != NULL){
+        if(jenjang(child(R))== x){
+            address_relasi P = R;
+            R = next(R);
+            deleterelasi(L,P);
+        } else {
+            R = next(R);
+        }
+    }
+}
+
+void deleterelP(Listr &L, string x){
+    address_relasi R = firstrel(L);
+    while(R != NULL){
+        if(Nama(parent(R))== x){
+            address_relasi P = R;
+            R = next(R);
+            deleterelasi(L,P);
+        } else {
+            R = next(R);
+        }
+    }
 }
